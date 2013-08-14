@@ -272,7 +272,8 @@ if (!appshell.app) {
                 isDirectory: function () {
                     return isDir;
                 },
-                mtime: new Date(modtime * 1000) // modtime is seconds since 1970, convert to ms
+                mtime: new Date(modtime * 1000), // modtime is seconds since 1970, convert to ms
+                path: path
             });
         }, path);
     };
@@ -450,7 +451,7 @@ if (!appshell.app) {
  
     /** Return the home directory as the second argument of the callback function */
     native function GetDocumentsDir();
-    appshell.fs.getHomeDir = function (callback) {
+    appshell.fs.getDocumentsDir = function (callback) {
         GetDocumentsDir(callback);
     };
  

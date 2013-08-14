@@ -569,7 +569,7 @@ int32 GetHomeDir(ExtensionString& expandedPath)
 
 int32 GetDocumentsDir(ExtensionString& expandedPath)
 {
-    NSString* path = [[NSString stringWithUTF8String:"~"] stringByExpandingTildeInPath];
+    NSString* path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     expandedPath = [path UTF8String];
     return NO_ERROR;
 }
